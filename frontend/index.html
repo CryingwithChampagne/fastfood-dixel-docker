@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#ffd700" />
+    <meta name="description" content="Order delicious fast food online. Burgers, fries, pizza, and more!" />
+    <meta name="keywords" content="fast food, burger, fries, pizza, online order, restaurant" />
+    <meta name="author" content="FastFoodixel" />
+    <meta property="og:title" content="FastFoodixel" />
+    <meta property="og:description" content="Order delicious fast food online. Burgers, fries, pizza, and more!" />
+    <meta property="og:image" content="/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <link rel="stylesheet" href="modal.css">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <title>FastFoodixel - Crave. Click. Enjoy!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <div class="wavy"></div>
+    <button class="cart-btn" onclick="viewCart()">
+      <span class="cart-icon">🛒</span>
+      Cart
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <noscript>
+      <div style="color: #e74c3c; text-align: center; padding: 1em;">This app requires JavaScript to run.</div>
+    </noscript>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-emoji">🍔🍟🥤🍕</div>
+      <div class="hero-title">FastFoodixel</div>
+      <div class="hero-tagline">
+        <span style="color:#ff9800;font-weight:bold;">Crave. Click. Enjoy!</span> <br>
+        <span style="font-size:1.1em;">Minimal, luxury, and fun food ordering for hungry people.</span>
+      </div>
+      <div class="hero-crave">
+        <span>What are you craving today?</span>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+      <div class="menu-title">Our Menu</div>
+      <div class="menu-grid">
+        <div class="menu-item" data-menu="burger">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Burger">
+          <h3>Burger</h3>
+          <p>Juicy beef patty, fresh veggies, and melty cheese in a toasted bun.</p>
+          <div style="color:#ff9800;font-weight:bold;margin-bottom:0.5em;font-size:1.6em;letter-spacing:1px;">$4.99</div>
+          <div class="qty-controls">
+            <button class="qty-btn minus" onclick="changeQty('burger', -1)">-</button>
+            <span class="qty-value" id="qty-burger">1</span>
+            <button class="qty-btn plus" onclick="changeQty('burger', 1)">+</button>
+          </div>
+          <div class="action-btns">
+            <button onclick="addToCart('burger')">Add to Cart</button>
+            <button onclick="payNow('burger')">Pay Now</button>
+          </div>
+        </div>
+        <div class="menu-item" data-menu="frenchfries">
+          <img src="https://th.bing.com/th/id/R.5de4f743b777e1bd8bb5d6b1e702bdff?rik=69c5Fi6Kb%2bucMg&pid=ImgRaw&r=0" alt="French Fries">
+          <h3>French Fries</h3>
+          <p>Golden, crispy French fries with just the right amount of salt.</p>
+          <div style="color:#ff9800;font-weight:bold;margin-bottom:0.5em;font-size:1.6em;letter-spacing:1px;">$2.49</div>
+          <div class="qty-controls">
+            <button class="qty-btn minus" onclick="changeQty('frenchfries', -1)">-</button>
+            <span class="qty-value" id="qty-frenchfries">1</span>
+            <button class="qty-btn plus" onclick="changeQty('frenchfries', 1)">+</button>
+          </div>
+          <div class="action-btns">
+            <button onclick="addToCart('frenchfries')">Add to Cart</button>
+            <button onclick="payNow('frenchfries')">Pay Now</button>
+          </div>
+        </div>
+        <div class="menu-item" data-menu="pizza">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Pizza">
+          <h3>Pizza</h3>
+          <p>Cheesy, saucy, and loaded with your favorite toppings.</p>
+          <div style="color:#ff9800;font-weight:bold;margin-bottom:0.5em;font-size:1.6em;letter-spacing:1px;">$7.99</div>
+          <div class="qty-controls">
+            <button class="qty-btn minus" onclick="changeQty('pizza', -1)">-</button>
+            <span class="qty-value" id="qty-pizza">1</span>
+            <button class="qty-btn plus" onclick="changeQty('pizza', 1)">+</button>
+          </div>
+          <div class="action-btns">
+            <button onclick="addToCart('pizza')">Add to Cart</button>
+            <button onclick="payNow('pizza')">Pay Now</button>
+          </div>
+        </div>
+        <div class="menu-item" data-menu="soda">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.XPeA4yUdGdb5prLG_XlUAwHaE8?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Coke">
+          <h3>Coke or Pepsi</h3>
+          <p>Chilled, fizzy Coke or Pepsi to refresh your meal.</p>
+          <div style="color:#ff9800;font-weight:bold;margin-bottom:0.5em;font-size:1.6em;letter-spacing:1px;">$1.49</div>
+          <div class="qty-controls">
+            <button class="qty-btn minus" onclick="changeQty('soda', -1)">-</button>
+            <span class="qty-value" id="qty-soda">1</span>
+            <button class="qty-btn plus" onclick="changeQty('soda', 1)">+</button>
+          </div>
+          <div class="action-btns">
+            <button onclick="addToCart('soda')">Add to Cart</button>
+            <button onclick="payNow('soda')">Pay Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.18);z-index:1001;justify-content:center;align-items:center;">
+      <div style="background:#fff;border-radius:1.5em;min-width:280px;max-width:90vw;padding:2em 1.5em 1.5em 1.5em;box-shadow:0 4px 32px rgba(0,0,0,0.10);position:relative;">
+        <h2 style="margin:0 0 1em 0;font-family:'Pacifico',cursive;color:#ffb300;font-size:1.5em;text-align:center;">🛒 Your Cart</h2>
+        <div id="cart-items" style="font-size:1.1em;color:#6d4c41;text-align:left;min-width:180px;min-height:2em;margin-bottom:1.5em;">
+          <!-- Cart items will be injected here -->
+        </div>
+        <div id="cart-total" style="font-size:1.15em;color:#ff9800;font-weight:bold;text-align:right;margin-bottom:1.5em;"></div>
+        <button onclick="closeCartModal()" style="position:absolute;top:0.7em;right:1em;background:none;border:none;font-size:1.7em;color:#ff9800;cursor:pointer;">&times;</button>
+        <div style="text-align:center;display:flex;gap:1em;justify-content:center;">
+          <button onclick="checkoutCart()" style="padding:0.7em 2em;font-size:1.1em;background:linear-gradient(90deg,#ffd700 0%,#ff9800 100%);color:#fff;border:none;border-radius:1em;cursor:pointer;font-weight:bold;">Checkout</button>
+          <button onclick="payAtCounter()" style="padding:0.7em 2em;font-size:1.1em;background:linear-gradient(90deg,#ff9800 0%,#ffd700 100%);color:#fff;border:none;border-radius:1em;cursor:pointer;font-weight:bold;">Pay at Counter</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Store prices for each menu item
+      const prices = {
+        burger: 4.99,
+        frenchfries: 2.49,
+        pizza: 7.99,
+        soda: 1.49
+      };
+
+      // Store quantities for each menu item
+      const qty = {
+        burger: 1,
+        frenchfries: 1,
+        pizza: 1,
+        soda: 1
+      };
+      // Cart object to store items and their quantities
+      const cart = {};
+
+      function changeQty(menu, delta) {
+        qty[menu] += delta;
+        if (qty[menu] < 1) qty[menu] = 1;
+        document.getElementById('qty-' + menu).textContent = qty[menu];
+      }
+
+      function addToCart(menu) {
+        cart[menu] = (cart[menu] || 0) + qty[menu];
+        updateCartCount();
+        alert(`Added ${qty[menu]} ${menu === 'frenchfries' ? 'French Fries' : menu.charAt(0).toUpperCase() + menu.slice(1)}${qty[menu] > 1 ? 's' : ''} to cart!`);
+      }
+
+      function payNow(menu) {
+        alert(`Proceeding to payment for ${qty[menu]} ${menu === 'frenchfries' ? 'French Fries' : menu.charAt(0).toUpperCase() + menu.slice(1)}${qty[menu] > 1 ? 's' : ''}!`);
+      }
+
+      function updateCartCount() {
+        const count = Object.values(cart).reduce((a, b) => a + b, 0);
+        document.getElementById('cart-count').textContent = count;
+      }
+
+      function renderCartItems() {
+        const itemsDiv = document.getElementById('cart-items');
+        const totalDiv = document.getElementById('cart-total');
+        let total = 0;
+        if (Object.keys(cart).length === 0) {
+          itemsDiv.innerHTML = '<em>Your cart is empty!</em>';
+          totalDiv.textContent = '';
+        } else {
+          let msg = '';
+          for (const [item, count] of Object.entries(cart)) {
+            let name = item === 'frenchfries' ? 'French Fries' : item === 'soda' ? 'Coke or Pepsi' : item.charAt(0).toUpperCase() + item.slice(1);
+            let price = prices[item] * count;
+            total += price;
+            msg += `<div style="margin-bottom:0.5em;display:flex;justify-content:space-between;align-items:center;">
+              <span>${name} 
+                <button onclick="cartChangeQty('${item}', -1)" style="margin:0 0.5em;background:#43a047;color:#fff;border:none;border-radius:50%;width:1.8em;height:1.8em;font-size:1.1em;cursor:pointer;">-</button>
+                <b>${count}</b>
+                <button onclick="cartChangeQty('${item}', 1)" style="margin:0 0.5em;background:#e53935;color:#fff;border:none;border-radius:50%;width:1.8em;height:1.8em;font-size:1.1em;cursor:pointer;">+</button>
+              </span>
+              <span>$${price.toFixed(2)}</span>
+            </div>`;
+          }
+          itemsDiv.innerHTML = msg;
+          totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+        }
+      }
+
+      function cartChangeQty(item, delta) {
+        if (!cart[item]) return;
+        cart[item] += delta;
+        if (cart[item] < 1) {
+          delete cart[item];
+        }
+        updateCartCount();
+        renderCartItems();
+      }
+
+      function viewCart() {
+        renderCartItems();
+        document.getElementById('cart-modal').style.display = 'flex';
+      }
+
+      function closeCartModal() {
+        document.getElementById('cart-modal').style.display = 'none';
+      }
+      function checkoutCart() {
+        alert('Proceeding to checkout!');
+        closeCartModal();
+      }
+      function payAtCounter() {
+        alert('Please come to the counter to pay.');
+        closeCartModal();
+      }
+    </script>
+  </body>
+</html>
