@@ -27,8 +27,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ghcr.io/cryingwithchampagne/fastfood-backend:latest
+            ghcr.io/cryingwithchampagne/fastfood-backend:${{ github.sha }}
 
   deploy:
     needs: build-and-push
