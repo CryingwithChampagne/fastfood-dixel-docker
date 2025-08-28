@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import cors from 'cors';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/fastfood';
 
 const app = express();
