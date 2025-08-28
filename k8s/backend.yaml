@@ -15,10 +15,14 @@ spec:
     spec:
       containers:
         - name: fastfood-backend
-          image: fastfood-backend:v2   # <-- ตรงกับ docker images ที่คุณมี
-          imagePullPolicy: Never       # <-- บอก k8s ใช้ local image
+          image: fastfood-backend:v2
+          imagePullPolicy: Never
           ports:
             - containerPort: 5000
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongodb:27017/fastfood
+
 ---
 apiVersion: v1
 kind: Service
